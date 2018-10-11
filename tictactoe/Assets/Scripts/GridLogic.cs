@@ -56,6 +56,11 @@ public class GridLogic{
 
 	public void Set(int x, int y, TILE_CONTENT tc)
 	{
+		if (x < 0 || x > 2 || y < 0 || y > 2)
+		{
+			return;
+		}
+
 		if (grid[x,y] == TILE_CONTENT.BLANK && tc != TILE_CONTENT.BLANK)
 		{
 			nbFilled++;
@@ -82,10 +87,12 @@ public class GridLogic{
 
 	public WIN_TYPE IsWinner(TILE_CONTENT tc)
 	{
-		if (nbFilled < 5) return WIN_TYPE.NONE;
+		if (nbFilled < 5) return WIN_TYPE.NONE; // Unless there are 5 filled slots, victory is impossible.
+		
+		// Assume every winning type is true
 		bool[] solutions = new bool[] { true, true, true, true, true, true, true, true };
-
-
+		
+		// Go through evey grid position.  Invalidate all winning conditions associated with the grid position if it doesn't contain the wanted tile content
 		for (int x = 0; x < 3; x++)
 		{
 			for (int y = 0; y < 3; y++)
@@ -105,6 +112,8 @@ public class GridLogic{
 				}
 			}
 		}
+
+		// Return the first true win condition
 		WIN_TYPE wt;
 		for (wt = 0; wt < WIN_TYPE.NONE; wt++)
 		{
@@ -114,6 +123,7 @@ public class GridLogic{
 			}
 
 		}
+		// Alternatively return WIN_TYPE.NONE
 		return wt;
 	}
 	public bool IsFull()
