@@ -22,13 +22,21 @@ public class Game : MonoBehaviour {
 			gridElement.OnClickAction = GridElementClick;
 		}
 
-		//aI = new AIRandom();
-		aI = new AIMinMax();
 		Reset();
 	}
 
 	public void Reset()
 	{
+		// Playing against either Random or MinMax
+		if (UnityEngine.Random.value < .5f)
+		{
+			aI = new AIRandom();
+		}
+		else
+		{
+			aI = new AIMinMax();
+		}
+
 		gridLogic.Reset();
 		foreach (GridElement gridElement in gridElements)
 		{
