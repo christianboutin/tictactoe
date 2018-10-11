@@ -168,7 +168,7 @@ public class AIMinMax : AI
 		{
 			for (int j = 0; j < 3; j++)
 			{
-				// Check if celll is empty 
+				// Check if cell is empty 
 				if (board[i,j] == '_')
 				{
 					// Make the move 
@@ -203,7 +203,7 @@ public class AIMinMax : AI
 		{
 			for (int by = 0; by < 3; by++)
 			{
-				board[by, bx] = gridLogic.Get(bx, by) == GridLogic.TILE_CONTENT.BLANK ? '_' : gridLogic.Get(bx, by) == GridLogic.TILE_CONTENT.X ? player : opponent;
+				board[by, bx] = gridLogic.Get(bx, by) == GridLogic.TILE_CONTENT.BLANK ? '_' : gridLogic.Get(bx, by) == GridLogic.TILE_CONTENT.O ? player : opponent;
 			}
 		}
 		Move bestMove = FindBestMove(board);
