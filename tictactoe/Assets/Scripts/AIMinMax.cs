@@ -193,7 +193,6 @@ public class AIMinMax : AI
 				}
 			}
 		}
-
 		return bestMove;
 	}
 	public override void Play(GridLogic gridLogic, out int x, out int y)
@@ -209,6 +208,5 @@ public class AIMinMax : AI
 		Move bestMove = FindBestMove(board);
 		x = bestMove.col;
 		y = bestMove.row;
-
 	}
 }
