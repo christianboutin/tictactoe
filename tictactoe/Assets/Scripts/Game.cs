@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 public class Game : MonoBehaviour {
 	GridLogic gridLogic;
-	AI aI;
+	AI aI; // The AI used by your opponent.  Can be any inherited class.
 
 	[SerializeField]
 	GameObject victoryLine;
@@ -96,7 +97,15 @@ public class Game : MonoBehaviour {
 		int x, y;
 		aI.Play(gridLogic, out x, out y);
 		gridLogic.Set(x, y, GridLogic.TILE_CONTENT.O);
-		gridElements.Where(i => i.X == x && i.Y == y).FirstOrDefault().Set(GridLogic.TILE_CONTENT.O); // Protect against null
+		GridElement ge = gridElements.Where(i => i.X == x && i.Y == y).FirstOrDefault();
+		if (ge != null)
+		{
+			ge.Set(GridLogic.TILE_CONTENT.O);
+		}
+		else
+		{
+			throw new NullReferenceException("No GridElement at expected coordinates");
+		}
 		PostMove(GridLogic.TILE_CONTENT.O);
 	}
 
