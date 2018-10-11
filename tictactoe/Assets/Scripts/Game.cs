@@ -21,7 +21,8 @@ public class Game : MonoBehaviour {
 			gridElement.OnClickAction = GridElementClick;
 		}
 
-		aI = new AIRandom();
+		//aI = new AIRandom();
+		aI = new AIMinMax();
 		Reset();
 	}
 
