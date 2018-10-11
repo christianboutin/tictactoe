@@ -10,7 +10,7 @@ public class GridLogic
 		BLANK,
 		X,
 		O
-    }
+	}
 
 	public enum WIN_TYPE
 	{
