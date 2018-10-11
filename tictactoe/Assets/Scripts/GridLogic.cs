@@ -4,7 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class GridLogic{
-    public enum TILE_CONTENT{
+    public enum TILE_CONTENT
+	{
 		BLANK,
 		X,
 		O
@@ -27,8 +28,8 @@ public class GridLogic{
 
 	int nbFilled;
 
-	//// Use this for initialization
-	//void Start () {
+	//// Use this to test some conditions.  Alternatively integrate in automated tests
+	//public void Test () {
 	//	Reset();
 	//	Set(0, 0, TILE_CONTENT.X);
 	//	Set(1, 1, TILE_CONTENT.X);
@@ -126,6 +127,7 @@ public class GridLogic{
 		// Alternatively return WIN_TYPE.NONE
 		return wt;
 	}
+
 	public bool IsFull()
 	{
 		return nbFilled == 9;
