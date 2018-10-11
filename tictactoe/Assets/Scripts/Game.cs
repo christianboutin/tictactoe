@@ -15,7 +15,8 @@ public class Game : MonoBehaviour {
 	[SerializeField]
 	GridElement[] gridElements;
 
-	void Start () {
+	void Start () 
+	{
 		gridLogic = new GridLogic();
 		foreach (GridElement gridElement in gridElements)
 		{
