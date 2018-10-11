@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GridLogic{
-    public enum TILE_CONTENT
+public class GridLogic
+{
+	public enum TILE_CONTENT
 	{
 		BLANK,
 		X,
